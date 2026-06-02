@@ -607,44 +607,35 @@ li::after {
   position: fixed;
   right: 22px;
   bottom: 22px;
-  z-index: 9999;
-  display: inline-flex;
+  z-index: 50;
+  display: flex;
   align-items: center;
-  justify-content: center;
   gap: 12px;
-  padding: 12px 18px;
+  padding: 12px 16px;
   border-radius: 999px;
   background: #ffffff;
   color: #0b1220;
   border: 1px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
   font-weight: 900;
-  text-decoration: none;
-  line-height: 1;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .floating-whatsapp:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 24px 65px rgba(0, 0, 0, 0.42);
 }
-
 .wa-bubble {
   width: 42px;
   height: 42px;
-  min-width: 42px;
-  min-height: 42px;
   border-radius: 50%;
   background: #25d366;
   display: grid;
   place-items: center;
-  color: #ffffff;
+  color: white;
   position: relative;
-  flex-shrink: 0;
 }
-
 .wa-bubble::after {
   content: "";
   position: absolute;
@@ -653,85 +644,96 @@ li::after {
   border: 1px solid rgba(37, 211, 102, 0.38);
   animation: pulse 1.9s ease infinite;
 }
-
 @keyframes pulse {
   0% {
     transform: scale(0.82);
     opacity: 0.9;
   }
-
   100% {
     transform: scale(1.28);
     opacity: 0;
   }
 }
-
 .wa-bubble svg {
   width: 23px;
   height: 23px;
-  display: block;
 }
-
-/* Tablet */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .brand-logo {
+    width: 360px;
+  }
+}
 @media (max-width: 900px) {
-  .floating-whatsapp {
-    right: 18px;
-    bottom: 18px;
-    padding: 10px 14px;
+  .two-col,
+  .cards,
+  .maintenance,
+  .process,
+  .stats {
+    grid-template-columns: 1fr;
   }
-
-  .floating-whatsapp .wa-text {
+  .section-title {
+    display: block;
+  }
+  .terms {
+    columns: 1;
+  }
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .hero {
+    padding: 26px;
+    min-height: auto;
+  }
+  .hero-grid {
+    padding-top: 56px;
+  }
+  .brochure {
+    padding: 14px;
+  }
+  .section,
+  .cta {
+    padding: 24px;
+  }
+  h1 {
+    letter-spacing: -2px;
+  }
+  .floating-whatsapp span {
     display: none;
   }
-
-  .wa-bubble {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    min-height: 48px;
-  }
-
-  .wa-bubble svg {
-    width: 25px;
-    height: 25px;
+  .floating-whatsapp {
+    padding: 10px;
   }
 }
-
-/* Mobile */
 @media (max-width: 560px) {
-  .floating-whatsapp {
-    right: 16px;
-    bottom: 16px;
-    width: 58px;
-    height: 58px;
-    padding: 0;
-    border-radius: 50%;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    overflow: visible;
+  .brand-logo {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 18px;
   }
-
-  .floating-whatsapp:hover {
-    transform: translateY(-4px) scale(1.04);
-    box-shadow: none;
+  .services-grid {
+    grid-template-columns: 1fr;
   }
-
-  .floating-whatsapp .wa-text {
-    display: none;
+  .contact-chip {
+    width: 100%;
+    justify-content: center;
   }
-
-  .wa-bubble {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    min-height: 58px;
-    box-shadow: 0 16px 42px rgba(37, 211, 102, 0.35);
+  .tag {
+    white-space: normal;
   }
-
-  .wa-bubble svg {
-    width: 30px;
-    height: 30px;
+  .cta h3,
+  .section-title h3 {
+    font-size: 30px;
+  }
+  h1 {
+    font-size: 42px;
   }
 }
 
